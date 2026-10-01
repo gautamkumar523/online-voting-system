@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voting Booth — Vestor College of Management Election 2026</title>
+  <meta name="description" content="Official voting booth to verify your student credentials and submit your ballot for the 2026 Student Council." />
+  <link rel="icon" href="assets/icons/ballot-icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="vote">
+  <a href="#top" class="skip-link">Skip to main content</a>
+
+  <!-- ============ 1. TOP NOTICE ============ -->
+  <div class="demo-banner" role="note">
+    <span class="demo-banner__badge">CampusVote · Election 2026</span>
+    <p>Vestor College of Management — Official Student Council Voting Portal</p>
+  </div>
+
+  <!-- ============ 2. HEADER / NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand" aria-label="CampusVote home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="34" height="34">
+            <rect x="6" y="20" width="36" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M6 20 L24 8 L42 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="20" y="26" width="8" height="10" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <strong>Vestor College of Management</strong>
+          <small>Student Council Election · 2026</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="candidates.html">Candidates</a>
+        <a href="vote.html" class="is-active">Voting Booth</a>
+        <a href="results.html">Live Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ PAGE BANNER ============ -->
+    <section class="page-banner">
+      <div class="container">
+        <p class="section-label">Official Voting Booth</p>
+        <h1>Cast Your Digital Ballot</h1>
+        <p>
+          Follow the three steps below: 1. Verify your credentials, 2. Select your candidate on the ballot, and 3. Confirm your vote to generate an official ballot receipt.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ STEP 1: VOTER REGISTRATION & VERIFICATION ============ -->
+    <section class="register" id="register">
+      <div class="container register__grid">
+        <div class="register__intro">
+          <p class="section-label">Step 1</p>
+          <h2>Voter Verification</h2>
+          <p>
+            Authenticate your student identity to unlock your ballot. Your registered Voter ID prevents duplicate ballots from being submitted.
+          </p>
+          <div class="register__callout">
+            <strong>Sample ID format:</strong>
+            <p>Use <code>VCM-2026-####</code> (e.g. <code>VCM-2026-1042</code>).</p>
+          </div>
+        </div>
+
+        <form class="register-form" id="registerForm" novalidate>
+          <div class="register-form__header">
+            <h3>Student Verification Form</h3>
+            <div class="registration-state" id="regState" data-state="incomplete">
+              <span class="registration-state__dot" aria-hidden="true"></span>
+              <span id="regStateText">Verification pending</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="fullName">Full legal name <span class="required" aria-hidden="true">*</span></label>
+            <input type="text" id="fullName" name="fullName" placeholder="e.g. Priya Sharma" autocomplete="name" required />
+            <p class="field__error" id="err-fullName" aria-live="polite"></p>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="voterId">Student Voter ID <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" id="voterId" name="voterId" placeholder="VCM-2026-####" maxlength="13" required />
+              <p class="field__error" id="err-voterId" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="age">Age <span class="required" aria-hidden="true">*</span></label>
+              <input type="number" id="age" name="age" min="18" max="120" placeholder="18+" required />
+              <p class="field__error" id="err-age" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email">College email <span class="required" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" placeholder="student@vestor.edu.in" autocomplete="email" required />
+              <p class="field__error" id="err-email" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="mobile">Mobile number <span class="required" aria-hidden="true">*</span></label>
+              <input type="tel" id="mobile" name="mobile" placeholder="10-digit number" maxlength="10" autocomplete="tel" required />
+              <p class="field__error" id="err-mobile" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--block">Verify &amp; Unlock Ballot</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ STEP 2: OFFICIAL BALLOT SELECTION ============ -->
+    <section class="candidates" id="candidates">
+      <div class="container">
+        <div class="candidates__header">
+          <div>
+            <p class="section-label">Step 2</p>
+            <h2>Official Ballot</h2>
+            <p>Select one candidate to cast your vote. You can review full priorities before confirming.</p>
+          </div>
+          <div class="candidates__search">
+            <label for="candidateSearch" class="visually-hidden">Search candidates</label>
+            <input type="search" id="candidateSearch" placeholder="Filter ballot candidates..." />
+          </div>
+        </div>
+
+        <div class="candidate-grid" id="candidateGrid" role="list">
+          <!-- Ballot cards rendered by js/script.js -->
+        </div>
+
+        <p class="candidates__empty" id="candidatesEmpty" hidden>No candidates match your search.</p>
+      </div>
+    </section>
+
+    <!-- ============ STICKY VOTE BAR ============ -->
+    <div class="vote-bar" id="voteBar" hidden>
+      <div class="container vote-bar__inner">
+        <div class="vote-bar__selection">
+          <img id="voteBarImg" src="" alt="" class="vote-bar__thumb" />
+          <div>
+            <p class="vote-bar__label">Selected Candidate</p>
+            <p class="vote-bar__name" id="voteBarName">—</p>
+          </div>
+        </div>
+        <button class="btn btn--primary" id="voteNowBtn" type="button">Cast Vote Now</button>
+      </div>
+    </div>
+
+    <!-- ============ STEP 3: STATUS & RECEIPT ============ -->
+    <section class="status" id="status">
+      <div class="container status__grid">
+        <div>
+          <p class="section-label">Step 3</p>
+          <h2>My Ballot Status</h2>
+          <p>Real-time verification status for your voter ID and recorded ballot on this device.</p>
+        </div>
+        <div class="status-card" id="statusCard" data-state="not-registered">
+          <div class="status-card__icon" aria-hidden="true"></div>
+          <div class="status-card__body">
+            <h3 id="statusTitle">Not registered</h3>
+            <p id="statusMessage">Complete voter verification in Step 1 to unlock your ballot.</p>
+            <button class="btn btn--outline btn--sm" id="viewReceiptBtn" type="button" style="display: none; margin-top: 14px;">View Official Ballot Receipt</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESET ELECTION DATA ============ -->
+    <section class="demo-reset">
+      <div class="container demo-reset__inner">
+        <div>
+          <h2>Reset Session Data</h2>
+          <p>
+            Clears local registration, recorded votes, and ballots stored in this browser for testing purposes.
+          </p>
+        </div>
+        <button class="btn btn--outline" id="demoResetBtn" type="button">Reset election data</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <p class="brand__text"><strong>Vestor College of Management — Student Council Election 2026</strong></p>
+        <p>Official Online Voting Portal Simulation.</p>
+      </div>
+      <p class="site-footer__note">Built with semantic HTML5, CSS3 and JavaScript. Single-ballot client enforcement.</p>
+    </div>
+  </footer>
+
+  <!-- ============ CANDIDATE DETAILS MODAL ============ -->
+  <div class="modal-overlay" id="detailsModalOverlay" hidden>
+    <div class="modal modal--wide" role="dialog" aria-modal="true" aria-labelledby="detailsModalTitle">
+      <button class="modal__close" id="detailsModalClose" type="button" aria-label="Close candidate details">&times;</button>
+      <div class="details-modal__grid">
+        <img id="detailsImg" src="" alt="" class="details-modal__img" />
+        <div>
+          <p class="details-modal__id" id="detailsId">—</p>
+          <h2 id="detailsModalTitle">—</h2>
+          <p class="details-modal__org" id="detailsOrg">—</p>
+          <h3>Biography</h3>
+          <p id="detailsBio">—</p>
+          <h3>Key priorities</h3>
+          <ul id="detailsPriorities" class="details-modal__list"></ul>
+          <h3>Manifesto</h3>
+          <p id="detailsManifesto" class="details-modal__manifesto">—</p>
+          <button class="btn btn--primary" id="detailsSelectBtn" type="button">Select this candidate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ VOTE CONFIRMATION MODAL ============ -->
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+      <button class="modal__close" id="modalClose" type="button" aria-label="Close confirmation dialog">&times;</button>
+      <h2 id="modalTitle">Confirm your Vote</h2>
+      <p id="modalDesc">You're about to cast one official vote for:</p>
+      <div class="modal__candidate">
+        <img id="modalCandidateImg" src="" alt="" />
+        <div>
+          <p class="modal__candidate-name" id="modalCandidateName">—</p>
+          <p class="modal__candidate-party" id="modalCandidateParty">—</p>
+        </div>
+      </div>
+      <p class="modal__warning">This action cannot be undone. Your voter ID will be marked as having voted.</p>
+      <div class="modal__actions">
+        <button class="btn btn--ghost" id="modalCancel" type="button">Go back</button>
+        <button class="btn btn--primary" id="modalConfirm" type="button">Confirm &amp; submit vote</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ BALLOT RECEIPT MODAL ============ -->
+  <div class="modal-overlay" id="receiptModalOverlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="receiptModalTitle">
+      <button class="modal__close" id="receiptModalClose" type="button" aria-label="Close receipt dialog">&times;</button>
+      <div class="print-receipt-header" aria-hidden="true">
+        <h3>Vestor College of Management · Patna</h3>
+        <p>Student Council Election 2026 — Verified Ballot Receipt</p>
+      </div>
+      <h2 id="receiptModalTitle">Official Ballot Receipt</h2>
+      <p>Your vote has been verified and permanently recorded for this election.</p>
+      <div class="receipt-card">
+        <div class="receipt-card__header">
+          <span class="receipt-card__badge">&#10003; Ballot Verified</span>
+          <span class="receipt-token" id="receiptToken">—</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-row__label">Voter Name</span>
+          <span class="receipt-row__val" id="receiptVoterName">—</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-row__label">Voter ID</span>
+          <span class="receipt-row__val" id="receiptVoterId">—</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-row__label">Candidate Selected</span>
+          <span class="receipt-row__val" id="receiptCandidateName">—</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-row__label">Organization / Party</span>
+          <span class="receipt-row__val" id="receiptCandidateParty">—</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-row__label">Timestamp</span>
+          <span class="receipt-row__val" id="receiptTimestamp">—</span>
+        </div>
+      </div>
+      <div class="modal__actions">
+        <button class="btn btn--ghost" id="receiptCloseBtn" type="button">Close</button>
+        <button class="btn btn--primary" id="receiptPrintBtn" type="button">&#128424; Print Receipt</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

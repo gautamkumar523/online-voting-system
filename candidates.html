@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candidate Directory — Vestor College of Management Election 2026</title>
+  <meta name="description" content="Explore certified candidate profiles, manifestos, and priorities for the Vestor Student Council 2026 election." />
+  <link rel="icon" href="assets/icons/ballot-icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="candidates">
+  <a href="#top" class="skip-link">Skip to main content</a>
+
+  <!-- ============ 1. TOP NOTICE ============ -->
+  <div class="demo-banner" role="note">
+    <span class="demo-banner__badge">CampusVote · Election 2026</span>
+    <p>Vestor College of Management — Official Student Council Voting Portal</p>
+  </div>
+
+  <!-- ============ 2. HEADER / NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand" aria-label="CampusVote home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="34" height="34">
+            <rect x="6" y="20" width="36" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M6 20 L24 8 L42 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="20" y="26" width="8" height="10" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <strong>Vestor College of Management</strong>
+          <small>Student Council Election · 2026</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="candidates.html" class="is-active">Candidates</a>
+        <a href="vote.html">Voting Booth</a>
+        <a href="results.html">Live Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ PAGE BANNER ============ -->
+    <section class="page-banner">
+      <div class="container">
+        <p class="section-label">Official Candidate Directory</p>
+        <h1>Meet the 2026 Candidates</h1>
+        <p>
+          Compare agendas, backgrounds, and priority platforms before casting your ballot. Every candidate has been vetted and certified by the Student Election Commission.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ DIRECTORY SECTION ============ -->
+    <section class="candidates" style="padding-top: 36px;" aria-labelledby="directoryTitle">
+      <div class="container">
+        <div class="candidates__header">
+          <div>
+            <h2 id="directoryTitle">Certified Candidate Manifestos</h2>
+            <p>Use the search box or party filters below to explore each candidate's vision.</p>
+          </div>
+          <div class="candidates__search">
+            <label for="candidateSearch" class="visually-hidden">Search candidates</label>
+            <input type="search" id="candidateSearch" placeholder="Search by name, party, or keyword..." />
+          </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar" role="toolbar" aria-label="Filter candidates by organization or party">
+          <button type="button" class="filter-pill is-active" data-filter="all">All Candidates</button>
+          <button type="button" class="filter-pill" data-filter="Discipline Incharge">Discipline Incharge</button>
+          <button type="button" class="filter-pill" data-filter="Campus Unity Party">Campus Unity Party</button>
+          <button type="button" class="filter-pill" data-filter="College Captain">College Captain</button>
+          <button type="button" class="filter-pill" data-filter="Independent">Independent</button>
+        </div>
+
+        <div class="candidate-grid" id="candidateGrid" role="list">
+          <!-- Candidate cards rendered by js/script.js -->
+        </div>
+
+        <p class="candidates__empty" id="candidatesEmpty" hidden>No candidates match your search filter.</p>
+
+        <!-- CTA Banner to Vote Booth -->
+        <div class="cta-banner">
+          <h2>Ready to Make Your Decision?</h2>
+          <p>Once you've reviewed the candidates, proceed to the secure voting booth to cast your official ballot.</p>
+          <div class="cta-banner__actions">
+            <a href="vote.html" class="btn btn--primary">Proceed to Voting Booth &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <p class="brand__text"><strong>Vestor College of Management — Student Council Election 2026</strong></p>
+        <p>Official Online Voting Portal Simulation.</p>
+      </div>
+      <p class="site-footer__note">Built with semantic HTML5, CSS3 and JavaScript. Single-ballot client enforcement.</p>
+    </div>
+  </footer>
+
+  <!-- ============ CANDIDATE DETAILS MODAL ============ -->
+  <div class="modal-overlay" id="detailsModalOverlay" hidden>
+    <div class="modal modal--wide" role="dialog" aria-modal="true" aria-labelledby="detailsModalTitle">
+      <button class="modal__close" id="detailsModalClose" type="button" aria-label="Close candidate details">&times;</button>
+      <div class="details-modal__grid">
+        <img id="detailsImg" src="" alt="" class="details-modal__img" />
+        <div>
+          <p class="details-modal__id" id="detailsId">—</p>
+          <h2 id="detailsModalTitle">—</h2>
+          <p class="details-modal__org" id="detailsOrg">—</p>
+          <h3>Biography</h3>
+          <p id="detailsBio">—</p>
+          <h3>Key priorities</h3>
+          <ul id="detailsPriorities" class="details-modal__list"></ul>
+          <h3>Manifesto</h3>
+          <p id="detailsManifesto" class="details-modal__manifesto">—</p>
+          <button class="btn btn--primary" id="detailsSelectBtn" type="button">Vote for this candidate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

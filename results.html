@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Results &amp; Analytics — Vestor College of Management Election 2026</title>
+  <meta name="description" content="Certified live results dashboard and analytics for the 2026 Vestor Student Council election." />
+  <link rel="icon" href="assets/icons/ballot-icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="results">
+  <a href="#top" class="skip-link">Skip to main content</a>
+
+  <!-- ============ 1. TOP NOTICE ============ -->
+  <div class="demo-banner" role="note">
+    <span class="demo-banner__badge">CampusVote · Election 2026</span>
+    <p>Vestor College of Management — Official Student Council Voting Portal</p>
+  </div>
+
+  <!-- ============ 2. HEADER / NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand" aria-label="CampusVote home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="34" height="34">
+            <rect x="6" y="20" width="36" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M6 20 L24 8 L42 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="20" y="26" width="8" height="10" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <strong>Vestor College of Management</strong>
+          <small>Student Council Election · 2026</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="candidates.html">Candidates</a>
+        <a href="vote.html">Voting Booth</a>
+        <a href="results.html" class="is-active">Live Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ PAGE BANNER ============ -->
+    <section class="page-banner">
+      <div class="container">
+        <p class="section-label">Live Election Analytics</p>
+        <h1>Election Results Dashboard</h1>
+        <p>
+          Official, certified tally of student council votes. This leaderboard syncs in real-time as verified ballots are submitted across the campus portal.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ LIVE RESULTS DASHBOARD ============ -->
+    <section class="results" id="results" style="padding-top: 36px;">
+      <div class="container">
+        <!-- Print-only official header -->
+        <div class="print-results-header" aria-hidden="true">
+          <h2>Vestor College of Management</h2>
+          <p>Student Council Election 2026 — Official Certified Results Tally</p>
+        </div>
+
+        <!-- Analytics Stats Summary -->
+        <div class="stats-summary" aria-label="Key election metrics">
+          <div class="stat-box">
+            <div class="stat-box__label">Total Ballots Cast</div>
+            <div class="stat-box__val" id="totalVotes">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box__label">Current Leader</div>
+            <div class="stat-box__val" id="statLeadingCandidate" style="font-size: 1.25rem;">No votes yet</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box__label">Lead Margin</div>
+            <div class="stat-box__val" id="statMargin">—</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box__label">Poll Status</div>
+            <div class="stat-box__val" id="statPollStatus" style="color: var(--color-teal); font-size: 1.25rem;">Polls Open</div>
+          </div>
+        </div>
+
+        <!-- Dashboard Header & Actions -->
+        <div class="results__header">
+          <div>
+            <h2>Candidate Standings</h2>
+            <p>Ranked in real-time by total verified student votes.</p>
+          </div>
+          <div class="results__header-right">
+            <div class="results__actions">
+              <button class="btn btn--ghost btn--sm" id="exportResultsBtn" type="button" title="Export Results as CSV">
+                <span aria-hidden="true">&#128190;</span> Export CSV
+              </button>
+              <button class="btn btn--ghost btn--sm" id="printResultsBtn" type="button" title="Print Results Summary">
+                <span aria-hidden="true">&#128424;</span> Print Results
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leaderboard List -->
+        <div class="results-list" id="resultsList" role="list">
+          <!-- Result rows rendered dynamically by js/script.js -->
+        </div>
+
+        <p class="results__empty" id="resultsEmpty">No votes have been cast yet. Be the first to cast a ballot in the voting booth.</p>
+
+        <!-- Audit & Verification Callout -->
+        <div class="cta-banner" style="margin-top: 48px;">
+          <h2>Haven't Cast Your Vote Yet?</h2>
+          <p>Every student is entitled to one official ballot. Polls close at 5:00 PM on October 3.</p>
+          <div class="cta-banner__actions">
+            <a href="vote.html" class="btn btn--primary">Go to Voting Booth &rarr;</a>
+            <a href="candidates.html" class="btn btn--ghost" style="color: #fff; border-color: rgba(255,255,255,0.4);">Review Candidates</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <p class="brand__text"><strong>Vestor College of Management — Student Council Election 2026</strong></p>
+        <p>Official Online Voting Portal Simulation.</p>
+      </div>
+      <p class="site-footer__note">Built with semantic HTML5, CSS3 and JavaScript. Single-ballot client enforcement.</p>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

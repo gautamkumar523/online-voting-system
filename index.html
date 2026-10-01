@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusVote — Vestor College of Management Student Council Election 2026</title>
+  <meta name="description" content="Official online voting portal for the Vestor College of Management Student Council election 2026." />
+  <link rel="icon" href="assets/icons/ballot-icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head> 
+<body data-page="home">
+  <!-- Skip-to-content accessibility link -->
+  <a href="#top" class="skip-link">Skip to main content</a>
+
+  <!-- ============ 1. TOP NOTICE ============ -->
+  <div class="demo-banner" role="note">
+    <span class="demo-banner__badge">CampusVote · Election 2026</span>
+    <p>Vestor College of Management — Official Student Council Voting Portal</p>
+  </div>
+
+  <!-- ============ 2. HEADER / NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand" aria-label="CampusVote home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="34" height="34">
+            <rect x="6" y="20" width="36" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M6 20 L24 8 L42 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <rect x="20" y="26" width="8" height="10" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <strong>Vestor College of Management</strong>
+          <small>Student Council Election · 2026</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <a href="index.html" class="is-active">Home</a>
+        <a href="candidates.html">Candidates</a>
+        <a href="vote.html">Voting Booth</a>
+        <a href="results.html">Live Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ 3. HERO SECTION ============ -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="hero__eyebrow">Vestor College of Management, Patna</p>
+          <h1 class="hero__title">Student Council<br>Election 2026</h1>
+          <p class="hero__lede">
+            Welcome to the official election portal. Four certified candidates are running for the 2026 Student Cabinet. Explore their policy platforms, verify your student credentials, and cast your official digital ballot.
+          </p>
+          <div class="hero__cta">
+            <a href="vote.html" class="btn btn--primary">Enter Voting Booth</a>
+            <a href="candidates.html" class="btn btn--ghost">Meet Candidates</a>
+            <a href="results.html" class="btn btn--ghost">Live Results</a>
+          </div>
+          <dl class="hero__stats">
+            <div>
+              <dt>Voting Closes</dt>
+              <dd>5:00 PM, Oct 3</dd>
+            </div>
+            <div>
+              <dt>Office</dt>
+              <dd>Student Cabinet</dd>
+            </div>
+            <div>
+              <dt>Candidates</dt>
+              <dd>4 Certified</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero__art" aria-hidden="true">
+          <svg viewBox="0 0 420 420" class="ballot-illustration">
+            <rect x="70" y="130" width="280" height="230" rx="10" fill="#0F1B3C"/>
+            <rect x="70" y="130" width="280" height="230" rx="10" fill="none" stroke="#C9A227" stroke-width="3"/>
+            <rect x="95" y="100" width="230" height="55" rx="6" fill="#F7F3E8" stroke="#0F1B3C" stroke-width="3" class="ballot-illustration__paper"/>
+            <line x1="120" y1="120" x2="280" y2="120" stroke="#0F1B3C" stroke-width="3"/>
+            <line x1="120" y1="135" x2="240" y2="135" stroke="#0F1B3C" stroke-width="3"/>
+            <circle cx="210" cy="140" r="70" fill="none" stroke="#C9A227" stroke-width="2" stroke-dasharray="4 6" opacity="0.6"/>
+            <path d="M155 260 l40 40 l75 -85" fill="none" stroke="#C9A227" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. ELECTION INFORMATION ============ -->
+    <section class="info" aria-label="Election information">
+      <div class="container info__grid">
+        <article class="info-card">
+          <span class="info-card__icon" aria-hidden="true">&#128197;</span>
+          <h2>Election Date</h2>
+          <p id="infoDate">October 3, 2026 · 10:00 AM – 5:00 PM</p>
+        </article>
+        <article class="info-card">
+          <span class="info-card__icon" aria-hidden="true">&#128100;</span>
+          <h2>Total Candidates</h2>
+          <p id="infoCandidateCount">4 certified candidates</p>
+        </article>
+        <article class="info-card">
+          <span class="info-card__icon" aria-hidden="true">&#128202;</span>
+          <h2>Voting Status</h2>
+          <p id="infoVotingStatus">Polls open — accepting ballots</p>
+        </article>
+        <article class="info-card">
+          <span class="info-card__icon" aria-hidden="true">&#128274;</span>
+          <h2>Integrity Mode</h2>
+          <p id="infoDemoMode">Single-ballot client enforcement</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 5. HOW VOTING WORKS ============ -->
+    <section class="steps" aria-labelledby="stepsTitle">
+      <div class="container">
+        <p class="section-label">Seamless 3-Step Process</p>
+        <h2 id="stepsTitle">How Student Voting Works</h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-card__num">01</span>
+            <h3>Verify Credentials</h3>
+            <p>Enter your full name and student Voter ID (<code>VCM-2026-####</code>). The system verifies eligibility and prevents duplicate ballots.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-card__num">02</span>
+            <h3>Review &amp; Cast Ballot</h3>
+            <p>Review candidate agendas and key priorities. Select your preferred representative and confirm your submission.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-card__num">03</span>
+            <h3>Get Verified Receipt</h3>
+            <p>Instantly receive an official ballot confirmation receipt complete with timestamp, hash token, and print option.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. CANDIDATES PREVIEW ============ -->
+    <section class="candidates" aria-labelledby="candidatesTitle">
+      <div class="container">
+        <div class="candidates__header">
+          <div>
+            <p class="section-label">Candidate Roster</p>
+            <h2 id="candidatesTitle">Certified Candidates</h2>
+            <p>Explore the four candidates certified for the 2026 Student Cabinet election.</p>
+          </div>
+          <div>
+            <a href="candidates.html" class="btn btn--ghost btn--sm">View All Manifestos &rarr;</a>
+          </div>
+        </div>
+
+        <div class="candidate-grid" id="candidateGrid" role="list">
+          <!-- Candidate cards rendered by js/script.js -->
+        </div>
+        <p class="candidates__empty" id="candidatesEmpty" hidden>No candidates match your search.</p>
+      </div>
+    </section>
+
+    <!-- ============ 7. LIVE RESULTS PREVIEW TEASER ============ -->
+    <section class="results-teaser" style="padding: 40px 0 20px;">
+      <div class="container">
+        <div class="cta-banner">
+          <p class="section-label" style="color: var(--color-gold);">Live Transparency</p>
+          <h2>Real-Time Election Analytics</h2>
+          <p>
+            Track student turnout, live vote counts, and candidate standings on our official live dashboard.
+          </p>
+          <div class="cta-banner__actions">
+            <a href="results.html" class="btn btn--primary">Open Live Results Dashboard</a>
+            <a href="vote.html" class="btn btn--ghost" style="color: #fff; border-color: rgba(255,255,255,0.4);">Enter Voting Booth</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <p class="brand__text"><strong>Vestor College of Management — Student Council Election 2026</strong></p>
+        <p>Official Online Voting Portal Simulation.</p>
+      </div>
+      <p class="site-footer__note">Built with semantic HTML5, CSS3 and JavaScript. Single-ballot client enforcement.</p>
+    </div>
+  </footer>
+
+  <!-- ============ CANDIDATE DETAILS MODAL ============ -->
+  <div class="modal-overlay" id="detailsModalOverlay" hidden>
+    <div class="modal modal--wide" role="dialog" aria-modal="true" aria-labelledby="detailsModalTitle">
+      <button class="modal__close" id="detailsModalClose" type="button" aria-label="Close candidate details">&times;</button>
+      <div class="details-modal__grid">
+        <img id="detailsImg" src="" alt="" class="details-modal__img" />
+        <div>
+          <p class="details-modal__id" id="detailsId">—</p>
+          <h2 id="detailsModalTitle">—</h2>
+          <p class="details-modal__org" id="detailsOrg">—</p>
+          <h3>Biography</h3>
+          <p id="detailsBio">—</p>
+          <h3>Key priorities</h3>
+          <ul id="detailsPriorities" class="details-modal__list"></ul>
+          <h3>Manifesto</h3>
+          <p id="detailsManifesto" class="details-modal__manifesto">—</p>
+          <button class="btn btn--primary" id="detailsSelectBtn" type="button">Vote for this candidate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
